@@ -1,0 +1,14 @@
+.list-wrap {
+    position: absolute;
+    top:0px;
+    bottom:0;
+    left:0;
+    right:0;
+    background: #fff;
+    overflow-y: auto;
+    overflow-x:auto;
+}
+.white-pre {
+    white-space: pre
+}
+

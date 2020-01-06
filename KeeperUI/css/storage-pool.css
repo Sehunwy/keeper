@@ -1,0 +1,13 @@
+.browse-file-icon {
+    cursor: pointer;
+    position: absolute;
+    right: -30px;
+    top: 0px;
+    color: #1188DD;
+    font-size: 18px;
+    height: 100%;
+    border: 1px solid #CED4DA;
+    border-left: none;
+    width: 30px;
+    text-align: center;
+}

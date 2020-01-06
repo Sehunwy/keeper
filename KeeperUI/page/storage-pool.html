@@ -1,0 +1,64 @@
+<link rel="stylesheet" type="text/css" href="/KeeperUI/css/storage-pool.css">
+<link rel="stylesheet" type="text/css" href="/KeeperUI/css/keeper-common.css">
+<link rel="stylesheet" type="text/css" href="/KeeperUI/css/browse-file.css">
+<div class="main-right">
+    <div class="list-wrap ohy" style="top: 0px;">
+        <div class="main-min-width height100">
+            <div class="node-top clearfix pl20 pt10 pb10">
+                <div class="fl mr10 btn-opr pr create-pool">
+                    <span data-i18n-code="btn_create">创建</span>
+                </div>
+            </div>
+            <div class="keeper_user_container clearfix" style="height: calc(100% - 52px);">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="dn dialog-content create-storage-pool">
+    <form class="create-pool-form pb15" name="addPoolForm">
+        <div class="pt30 clearfix">
+            <div class="fl pr">
+                <label class="input-label-right">
+                    <span data-i18n-code="keeper_file_path"></span>
+                </label>
+            </div>
+            <div class="fl pr">
+                <input class="input-common create-pool-input file-result" name="path" valids="sysPathRelative"/>
+                <div name="browse-file-icon" class="browse-file-icon">
+                    <svg class="icon vem" aria-hidden="true"><use xlink:href="#icon-wenjianliulan"></use></svg>
+                </div>
+            </div>
+        </div>
+        <div class="pt15 clearfix">
+            <div class="fl">
+                <label class="input-label-right" data-i18n-code="keeper_pool_type"></label>
+            </div>
+            <div class="fl pool-select-box"></div>
+        </div>
+        <div class="pt15 clearfix">
+            <div class="fl">
+                <label class="input-label-right" data-i18n-code="keeper_file_type"></label>
+            </div>
+            <div class="fl file-select-box"></div>
+        </div>
+    </form>
+</div>
+
+<div class="dialog-content dn" name="browse-file-con">
+    <form class="browse-file-form" onsubmit="return false">
+        <div class="clearfix pl20 pt10 pb10 pr20 pr">
+            <div class="fl mr10 btn-opr" name="create-folder" data-i18n-code="store_file_browse_create_folder"></div>
+            <div class="fl mr10 btn-opr dn" name="back-last" data-i18n-code="store_file_browse_back_last"></div>
+            <div class="pr mr10 fl"><input class="file-path input-common" type="text" valids="fileSysPathPoint" data-msg="{'fileSysPathPoint':'store_file_browse_path'}"></div>
+            <div class="file-search dib fr" style="top: 10px"></div>
+        </div>
+        <div class="clearfix">
+            <div name="file-table"></div>
+        </div>
+    </form>
+</div>
+
+<script type="text/javascript" src="/KeeperUI/js/interface.js"></script>
+<script type="text/javascript" src="/KeeperUI/js/browse-file.js"></script>
+<script type="text/javascript" src="/KeeperUI/js/storage-pool.js"></script>

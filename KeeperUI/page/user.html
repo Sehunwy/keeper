@@ -1,0 +1,111 @@
+<link rel="stylesheet" type="text/css" href="/KeeperUI/css/keeper-common.css">
+<link rel="stylesheet" type="text/css" href="/KeeperUI/css/user.css">
+<div class="main-right">
+    <div class="list-wrap ohy" style="top: 0px;">
+        <div class="main-min-width height100">
+            <div class="user-top clearfix pl20 pt10 pb10">
+                <div class="fl mr10 btn-opr pr create-user">
+                    <span data-i18n-code="btn_create">创建</span>
+                </div>
+                <div class="fl mr10 btn-opr pr delKeeperUser">
+                    <span data-i18n-code="btn_delete">删除</span>
+                </div>
+                <div class="fr mr20 user-query">
+                </div>
+            </div>
+            <div class="keeper_user_container clearfix" style="height: calc(100% - 52px);">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="dn dialog-content create-user-dialog">
+    <form class="create-user-form pb15" name="addUserForm">
+        <div class="pt30 clearfix">
+            <div class="fl pr">
+                <label class="input-label-right">
+                    <span data-i18n-code="keeper_user_name"></span>
+                </label>
+            </div>
+            <div class="fl pr">
+                <input name="create-user-input" class="input-common create-user-input"/>
+            </div>
+        </div>
+        <div class="pt15 clearfix">
+            <div class="fl pr">
+                <label class="input-label-right">
+                    <span data-i18n-code="keeper_user_email"></span>
+                </label>
+            </div>
+            <div class="fl pr">
+                <input name="create-email-input" class="input-common create-email-input" valids="required email" data-msg="{required:doI18n('keeper_email')}"/>
+            </div>
+        </div>
+        <div class="clearfix">
+            <div class="fl pr">
+                <label class="input-label-right">
+                </label>
+            </div>
+            <div class="fl pr">
+                <span class="text-common" data-i18n-code="keeper_email_role"></span>
+            </div>
+        </div>
+        <div class="pt15 clearfix">
+            <div class="fl pr">
+                <label class="input-label-right">
+                    <span data-i18n-code="keeper_user_pool"></span>
+                </label>
+            </div>
+            <div class="fl pr pool-select-box">
+            </div>
+        </div>
+        <div class="pt15 clearfix">
+            <div class="fl pr">
+                <label class="input-label-right">
+                    <span data-i18n-code="keeper_user_note"></span>
+                </label>
+            </div>
+            <div class="fl pr">
+                <textarea name="create-note-input" class="textarea-common create-note-input"></textarea>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="dn dialog-content modify-info">
+    <form class="create-user-form pb15" name="modifyUserForm">
+        <div class="pt30 clearfix">
+            <div class="fl pr">
+                <label class="input-label-right">
+                    <span data-i18n-code="keeper_user_name"></span>
+                </label>
+            </div>
+            <div class="fl pr">
+                <div class="fl pr">
+                    <span class="text-common username-text"></span>
+                </div>
+            </div>
+        </div>
+        <div class="pt15 clearfix">
+            <div class="fl pr">
+                <label class="input-label-right">
+                    <span data-i18n-code="keeper_user_email"></span>
+                </label>
+            </div>
+            <div class="fl pr">
+                <input name="create-email-input" class="input-common modify-email-input" valids="required email" data-msg="{required:doI18n('keeper_email')}"/>
+            </div>
+        </div>
+        <div class="pt15 clearfix">
+            <div class="fl pr">
+                <label class="input-label-right">
+                    <span data-i18n-code="keeper_user_note"></span>
+                </label>
+            </div>
+            <div class="fl pr">
+                <textarea name="create-note-input" class="textarea-common modify-note-input"></textarea>
+            </div>
+        </div>
+    </form>
+</div>
+<script type="text/javascript" src="/KeeperUI/js/user.js"></script>

@@ -1,0 +1,27 @@
+.ip-more {
+    color: #1188dd;
+    cursor: pointer;
+}
+
+.checkbox-normal {
+    /*position: relative;*/
+    width: 14px;
+    height: 14px;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    line-height: 14px;
+    color: #fff;
+    cursor: pointer;
+    text-align: center;
+    font-size: 14px;
+}
+.checkbox-select {
+    background: #1188dd !important;
+    border: none;
+}
+
+.icon-checkbox {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
