@@ -59,6 +59,22 @@
     </form>
 </div>
 
+<div class="dialog-content dn" name="create-folder-con"> 
+    <form class="create-folder-form" onsubmit="return false">
+        <div class="create-folder-title dn">
+            <span class="create-folder-name"></span>
+        </div>
+        <div class="mt30 clearfix">
+            <div class="fl">
+                <label class="input-label-right" data-i18n-code="store_file_browse_filename"></label>
+            </div>
+            <div class="fl pr">
+                <input type="text" name="folder-name" class="input-common pr20" valids="required lengthRange excludeComma fileSysName" data-msg="{required:'store_file_browse_filename', 'lengthRange':[1,80], 'excludeComma':'store_file_browse_filename', 'fileSysName':'store_file_browse_filename'}">
+            </div>
+        </div>
+    </form>
+</div>
+
 <script type="text/javascript" src="/KeeperUI/js/interface.js"></script>
 <script type="text/javascript" src="/KeeperUI/js/browse-file.js"></script>
 <script type="text/javascript" src="/KeeperUI/js/storage-pool.js"></script>

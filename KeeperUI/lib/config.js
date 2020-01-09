@@ -4,42 +4,41 @@ function loongKeeper() {
 
 }
 
-loongKeeper.prototype.getMenu = function() {
+loongKeeper.prototype.getMenu = function () {
     var user = window.sessionStorage.getItem("user");
     var role = getUserRoles(user, "loongDisk");
     if (role.admin) {
         this.homePage = {
-            "txt" : doI18n("loong_keeper"),
-            "dst" : "/DiskUI/page/dashboard.html",
-            "css" : "/DiskUI/css/dashboard.css"
+            "txt": doI18n("loong_keeper"),
+            "dst": "/DiskUI/page/dashboard.html",
+            "css": "/DiskUI/css/dashboard.css"
         }
         return {
-            "txt" : doI18n("loong_keeper"),
-            "dst" : "",
-            "css" : "",
-            "firstIcon" : "#iconyunpanshouqi",
-            "iconSelected" : "#iconyunpanzhankai",
-            "children" : [ {
-                "dst" : "/KeeperUI/page/object-node.html",
-                "css" : "",
-                "icon" : "#icon-fuwuguanli",
-                "txt" : doI18n("keeper_object_node"),
-                "iconSelected" : "#icon-fuwuguanli"
+            "txt": doI18n("loong_keeper"),
+            "dst": "",
+            "css": "",
+            "firstIcon": "#iconyunpanshouqi",
+            "iconSelected": "#iconyunpanzhankai",
+            "children": [{
+                "dst": "/KeeperUI/page/object-node.html",
+                "css": "",
+                "icon": "#icon-fuwuguanli",
+                "txt": doI18n("keeper_object_node"),
+                "iconSelected": "#icon-fuwuguanli"
             }, {
-                "dst" : "/KeeperUI/page/storage-pool.html",
-                "css" : "",
-                "icon" : "#icon-bumenguanli",
-                "txt" : doI18n("keeper_storage_pool"),
-                "iconSelected" : "#icon-bumenguanli"
+                "dst": "/KeeperUI/page/storage-pool.html",
+                "css": "",
+                "icon": "#icon-bumenguanli",
+                "txt": doI18n("keeper_storage_pool"),
+                "iconSelected": "#icon-bumenguanli"
             }, {
-                "dst" : "/KeeperUI/page/user.html",
-                "css" : "",
-                "icon" : "#icon-chengyuanguanli",
-                "txt" : doI18n("keeper_user_mana"),
-                "iconSelected" : "#icon-chengyuanguanli"
+                "dst": "/KeeperUI/page/user.html",
+                "css": "",
+                "icon": "#icon-chengyuanguanli",
+                "txt": doI18n("keeper_user_mana"),
+                "iconSelected": "#icon-chengyuanguanli"
             }
-
-        ]
+            ]
         }
     }
     if (role.orgadmin) {
@@ -49,24 +48,24 @@ loongKeeper.prototype.getMenu = function() {
         //     "css" : "/DiskUI/css/dashboard.css"
         // }
         return {
-            "txt" : doI18n("disk_loongKeeper"),
-            "dst" : "",
-            "css" : "",
-            "firstIcon" : "#iconyunpanshouqi",
-            "iconSelected" : "#iconyunpanzhankai",
-            "children" : [{
-                "dst" : "/KeeperUI/page/user.html",
-                "css" : "",
-                "icon" : "#icon-chengyuanguanli",
-                "txt" : doI18n("keeper_user_mana"),
-                "iconSelected" : "#icon-iscsiguanli"
-            } ]
+            "txt": doI18n("disk_loongKeeper"),
+            "dst": "",
+            "css": "",
+            "firstIcon": "#iconyunpanshouqi",
+            "iconSelected": "#iconyunpanzhankai",
+            "children": [{
+                "dst": "/KeeperUI/page/user.html",
+                "css": "",
+                "icon": "#icon-chengyuanguanli",
+                "txt": doI18n("keeper_user_mana"),
+                "iconSelected": "#icon-iscsiguanli"
+            }]
         }
     }
 
 };
 
-loongKeeper.prototype.getSetting = function() {
+loongKeeper.prototype.getSetting = function () {
     // return {
     //  "name" : "云盘管理设置",
     //  "dst" : "",
@@ -80,35 +79,35 @@ loongKeeper.prototype.getSetting = function() {
     // }
 }
 
-loongKeeper.prototype.getGuide = function() {
+loongKeeper.prototype.getGuide = function () {
     return {
-        "stepArry" : {
-            "title" : doI18n("disk_loongStore"),
-            "url" : "/DiskUI/page/guide-set.html",
-            "export" : "/DiskUI/js/guide.js",
-            "module" : "guideGlobal.diskGuide"
+        "stepArry": {
+            "title": doI18n("disk_loongStore"),
+            "url": "/DiskUI/page/guide-set.html",
+            "export": "/DiskUI/js/guide.js",
+            "module": "guideGlobal.diskGuide"
         },
-        "tipArry" : {
-            "url" : "/DiskUI/page/guide-tip.html"
+        "tipArry": {
+            "url": "/DiskUI/page/guide-tip.html"
         }
     }
 }
 
-loongKeeper.prototype.getIconfont = function() {
+loongKeeper.prototype.getIconfont = function () {
     return {
         "fontPath": "/KeeperUI/font/iconfont.js"
     }
 }
-loongKeeper.prototype.getValidate = function() {
+loongKeeper.prototype.getValidate = function () {
     return {
-        "name":"keeper",
-        "path":"/KeeperUI/validate"
+        "name": "keeper",
+        "path": "/KeeperUI/validate"
     }
 }
-loongKeeper.prototype.getAsyncTask = function(){
+loongKeeper.prototype.getAsyncTask = function () {
     return {
-        "name" : "keeper",
-        "export" : "/KeeperUI/js/asyncTask.js",
+        "name": "keeper",
+        "export": "/KeeperUI/js/asyncTask.js",
     }
 }
 

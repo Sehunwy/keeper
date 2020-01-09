@@ -20,7 +20,7 @@ $(function () {
                 {
                     "name": "path",
                     "title": "路径",
-                    "overflowTips": true
+                    "overflowEllipsis": true
                 },
                 {
                     "name": "type",

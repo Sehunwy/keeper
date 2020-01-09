@@ -1,7 +1,8 @@
 $(function () {
     let userTable = {};
     searchUser();
-    setUser();
+    // setUser();
+    setTenantUser();
     createUser();
     deleUser();
 
@@ -91,6 +92,61 @@ $(function () {
         });
     }
 
+    function setTenantUser() {
+        userTable = $('.keeper_user_container').loongTableTree({
+            "url": "http://13.15.11.34:3000/getTenantUserlist",
+            "height": "full-125",
+            "ajaxData": true,
+            "pagination": true,
+            "hasCheckbox": true,
+            "isSpread": false,
+            "method": "GET",
+            "params": {},
+            "fields": [
+                {
+                    "name": "userName",
+                    "title": "存储池/用户名称",
+                },
+                {
+                    "name": "secretKey",
+                    "title": "秘钥个数"
+                },
+                {
+                    "name": "bucket",
+                    "title": "存储桶数量"
+                },
+                {
+                    "name": "createTime",
+                    "title": "创建时间",
+                    'width': '180px',
+                    "formater": "dateFormat",
+                    "pattern": "yyyy-MM-dd HH:mm",
+                },
+                {
+                    "name": "operation",
+                    "title": "操作",
+                    "type": "button",
+                    'width': '120px',
+                    "operations": [
+                        {
+                            "text": "重置密码",
+                            "icon": '#icon-zhongxincaozuo',
+                            "callBack": function (index) {
+                                resetPassword(index);
+                            }
+                        },
+                        {
+                            "text": "修改信息",
+                            "icon": '#icon-xiugai',
+                            "callBack": function (index) {
+                                modifyInfo(index)
+                            }
+                        }
+                    ]
+                }]
+        });
+    }
+
     function createUser() {
         $('.create-user').on('click', function () {
             var formStr = "form[name=addUserForm]";
@@ -142,38 +198,66 @@ $(function () {
             let length = userIndexs.length;
             if (length == 0) {
                 $.loongDialog({
-                    "content": doI18n('keeper_select_node_dele'),
+                    "content": doI18n('keeper_select_user_dele'),
                     "msgType": "warning",
                     "isModal": false
                 });
             } else {
                 let str = ''
                 if (length > 5) {
-                    str = userTable.getRowData(userIndexs[0]).userName
-                    for (let i = 1; i < 5; i++) {
-                        str = str + ',' + userTable.getRowData(userIndexs[i]).userName;
+                    var children;
+                    var len = length;
+                    for (var i = 0; i < 5; i++) {
+                        children = userTable.getRowData(userIndexs[i]).children;
+                        if (children == undefined || children.length == 0) {
+                            var comma = ',';
+                            if (str == "") {
+                                comma = ''
+                            }
+                            str = str + comma + userTable.getRowData(userIndexs[i]).userName;
+                        }
+                        else {
+                            len--;
+                        }
                     }
-                    str = '您确定要删除'+str+'等'+length+'项吗？';
+                    for (var i = 5; i < length; i++) {
+                        children = userTable.getRowData(userIndexs[i]).children;
+                        if (children != undefined && children.length > 0) {
+                            len--
+                        }
+                    }
+                    str = '您确定要删除' + str + '等' + len + '项吗？';
                 } else {
-                    str = userTable.getRowData(userIndexs[0]).userName
-                    for (let i = 1; i < length; i++) {
-                        str = str + ',' + userTable.getRowData(userIndexs[i]).userName;
+                    var children;
+                    // var children = userTable.getRowData(userIndexs[0]).children;
+                    // if (children == undefined || children.length == 0) {
+                    //     str = userTable.getRowData(userIndexs[0]).userName
+                    // }
+                    for (let i = 0; i < length; i++) {
+                        children = userTable.getRowData(userIndexs[i]).children;
+                        if (children == undefined || length == 0) {
+                            var comma = ',';
+                            if (str == "") {
+                                comma = ''
+                            }
+                            str = str + comma + userTable.getRowData(userIndexs[i]).userName;
+                        }
                     }
-                    str = '您确定要删除'+str+'吗？';
+                    str = '您确定要删除' + str + '吗？';
                 }
                 $.loongDialog({
-                    "title" : doI18n("keeper_remove_users"),
+                    "title": doI18n("keeper_remove_users"),
                     "isInfo": true,
                     "isClosed": true,
-                    "content" : str,
-                    "buttons" : [ {
-                        "txt" : doI18n("btn_ok"),
-                        "callback" : function() {
+                    "content": str,
+                    "buttons": [{
+                        "txt": doI18n("btn_ok"),
+                        "callback": function () {
                             return true;
                         }
                     }, {
-                        "txt" : doI18n("btn_cancel")
-                    } ]
+                        "txt": doI18n("btn_cancel")
+                    }]
                 });
             }
         })
@@ -181,37 +265,37 @@ $(function () {
 
     function resetPassword(index) {
         $.loongDialog({
-            "title" : doI18n("keeper_remove_users"),
+            "title": doI18n("keeper_remove_users"),
             "isInfo": true,
             "isClosed": true,
-            "content" : doI18n("keeper_reset_password_info"),
-            "buttons" : [ {
-                "txt" : doI18n("btn_ok"),
-                "callback" : function() {
+            "content": doI18n("keeper_reset_password_info"),
+            "buttons": [{
+                "txt": doI18n("btn_ok"),
+                "callback": function () {
                     return true;
                 }
             }, {
-                "txt" : doI18n("btn_cancel")
-            } ]
+                "txt": doI18n("btn_cancel")
+            }]
         });
     }
 
     function modifyInfo(index) {
         var formStr = "form[name=modifyUserForm]";
-        let data = userTable.getRowData(index)
+        let data = userTable.getRowData(index);
         $.loongDialog({
-            "title" : doI18n("keeper_modify_info"),
+            "title": doI18n("keeper_modify_info"),
             "isInfo": false,
             "isClosed": true,
-            "content" : $('.modify-info').html(),
-            "buttons" : [ {
-                "txt" : doI18n("btn_ok"),
-                "callback" : function() {
+            "content": $('.modify-info').html(),
+            "buttons": [{
+                "txt": doI18n("btn_ok"),
+                "callback": function () {
                     return true;
                 }
             }, {
-                "txt" : doI18n("btn_cancel")
-            } ]
+                "txt": doI18n("btn_cancel")
+            }]
         });
         $('.dialog-wrap .username-text').html(data.userName);
         $('.dialog-wrap .modify-email-input').val(data.email);
